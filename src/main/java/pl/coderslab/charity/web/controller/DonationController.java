@@ -11,6 +11,7 @@ import pl.coderslab.charity.category.entity.Category;
 import pl.coderslab.charity.category.service.CategoryService;
 import pl.coderslab.charity.donation.dto.NewDonationDto;
 import pl.coderslab.charity.donation.entity.Donation;
+import pl.coderslab.charity.donation.mapper.DonationMapper;
 import pl.coderslab.charity.donation.repository.DonationRepository;
 import pl.coderslab.charity.donation.service.DonationService;
 import pl.coderslab.charity.institution.entity.Institution;
@@ -28,9 +29,11 @@ public class DonationController {
 
     private final DonationService donationService;
 
+    private final DonationMapper mapper;
+
     @ModelAttribute(name = "institutions")
     public List<Institution> getAllInstitutions() {
-        return institutionService.findAll();
+        return institutionService.findAllInstitutions();
     }
 
     @ModelAttribute(name = "categories")
@@ -47,9 +50,10 @@ public class DonationController {
     }
 
     @PostMapping("/new")
-    public String saveDonationForm(Donation donation) {
-        donationService.saveDonation(donation);
+    public String saveDonationForm(NewDonationDto donation) {
         System.out.println(donation);
+
+        donationService.saveDonation(mapper.toDonation(donation));
         return "form-confirmation";
     }
 }
