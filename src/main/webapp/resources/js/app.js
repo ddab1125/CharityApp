@@ -174,30 +174,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             document.getElementById('category-disp').innerText = ",rodzaj " + categories;
-            let quantity = document.getElementById('quantity-nmbr').value;
+            let quantity = document.querySelector('.quantity-nmbr').value;
             let quantityDisplay = document.getElementById('quantity-disp');
             quantityDisplay.innerText = "Worki: " + quantity;
-            let organizations = document.querySelectorAll('#org-name');
+            let organizations = document.querySelectorAll('.org-name');
             let organizationDisplay = document.getElementById('org-disp');
             for (let i = 0; i < organizations.length; i++) {
                 if (organizations[i].checked) {
-                    organizationDisplay.innerText = "Dla fundacji " + organizations[i].nextElementSibling.nextElementSibling.children.item(0).innerText;
+                    organizationDisplay.innerText = "Dla fundacji: " + organizations[i].nextElementSibling.nextElementSibling.children.item(0).innerText;
                 }
             }
 
 
-            let streetName = document.getElementById('street-name').value;
-            document.getElementById('street-disp').innerText = "Ulica " + streetName;
-            let cityName = document.getElementById('city-name').value;
-            document.getElementById('city-disp').innerText = "Miasto " + cityName;
-            let zipCode = document.getElementById('zip').value;
-            document.getElementById('zip-disp').innerText = "Kod pocztowy " + zipCode;
-            let pickUpDate = document.getElementById('pick-up-date').value;
+            let streetName = document.querySelector('.street-name').value;
+            document.getElementById('street-disp').innerText = "Ulica: " + streetName;
+            let cityName = document.querySelector('.city-name').value;
+            document.getElementById('city-disp').innerText = "Miasto: " + cityName;
+            let zipCode = document.querySelector('.zip').value;
+            document.getElementById('zip-disp').innerText = "Kod pocztowy: " + zipCode;
+            let pickUpDate = document.querySelector('.pick-up-date').value;
             document.getElementById('date-disp').innerText = "Data odbioru: " + pickUpDate;
-            let pickUpTime = document.getElementById('pick-up-time').value;
+            let pickUpTime = document.querySelector('.pick-up-time').value;
             document.getElementById('time-disp').innerText = "Godzina odbioru: " + pickUpTime;
-            let pickUpComment = document.getElementById('pick-up-comment').value;
+            let pickUpComment = document.querySelector('.pick-up-comment').value;
             document.getElementById('comment-disp').innerText = "Uwagi do kuriera: " + pickUpComment;
+            let phoneNumber = document.querySelector(".phone").value;
+            document.getElementById("phone-disp").innerText = "Numer telefonu" + phoneNumber;
         }
 
     }

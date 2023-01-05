@@ -96,7 +96,7 @@
 
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:checkbox path="categories" cssClass="checkbox" value="${category}" id="check-select"/>
+                            <form:checkbox path="categories" cssClass="checkbox" value="${category}" class="check-select"/>
 
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>
@@ -117,7 +117,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity" type="number" step="1" min="1" id="quantity-nmbr"/>
+                        <form:input path="quantity" type="number" step="1" min="1" class="quantity-nmbr"/>
 
                     </label>
                 </div>
@@ -139,7 +139,7 @@
 
                         <label>
                             <form:radiobutton path="institution" name="organization"
-                                              value="${organization}" id="org-name"/>
+                                              value="${organization}" class="org-name"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                   <div class="title">${organization.name}</div>
@@ -168,7 +168,7 @@
                         <form:errors path="street" cssClass="error"/>
 
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" id="street-name"/>
+                            <label> Ulica <form:input path="street" class="street-name"/>
 
                             </label>
 
@@ -178,7 +178,7 @@
                         <form:errors path="city" cssClass="error"/>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" id="city-name"/>
+                            <label> Miasto <form:input path="city" class="city-name"/>
                             </label>
                         </div>
 
@@ -187,14 +187,14 @@
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode" id="zip"/>
+                                Kod pocztowy <form:input path="zipCode" class="zip"/>
 
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="phone" name="phone"/>
+                                Numer telefonu <form:input path="phoneNumber" type="phone" class="phone"/>
                             </label>
                         </div>
                     </div>
@@ -202,7 +202,7 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input type="date" path="pickUpDate" id="pick-up-date" required="true"/>
+                            <label> Data <form:input type="date" path="pickUpDate" class="pick-up-date" required="true"/>
                             </label>
                         </div>
 
@@ -211,14 +211,14 @@
 
                         <div class="form-group form-group--inline">
                             <label> Godzina
-                                <form:input type="time" path="pickUpTime" id="pick-up-time"/>
+                                <form:input type="time" path="pickUpTime" class="pick-up-time"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpComment" rows="5" id="pick-up-comment"/>
+                                <form:textarea path="pickUpComment" rows="5" class="pick-up-comment"/>
                             </label>
                         </div>
                     </div>
@@ -257,7 +257,7 @@
                                 <li id="street-disp"></li>
                                 <li id="city-disp"></li>
                                 <li id="zip-disp"></li>
-                                    <%--                                <li> phone number </li>--%>
+                                <li id="phone-disp"></li>
                             </ul>
                         </div>
 

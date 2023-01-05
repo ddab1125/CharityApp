@@ -26,6 +26,7 @@ public class DonationMapper {
         donation.setPickUpDate(newDonationDto.getPickUpDate());
         donation.setPickUpTime(newDonationDto.getPickUpTime());
         donation.setPickUpComment(newDonationDto.getPickUpComment());
+        donation.setPhoneNumber(newDonationDto.getPhoneNumber());
         donation.setCategories(newDonationDto.getCategories().stream().map(c -> categoryService.findCategoryById(c)).collect(Collectors.toSet()));
         donation.setInstitution(institutionService.findInstitutionById(newDonationDto.getInstitution()));
 

@@ -53,8 +53,6 @@ public class DonationController {
     @PostMapping("/new")
     public String saveDonationForm(@ModelAttribute("donation") @Valid NewDonationDto donation, BindingResult result) {
         if (result.hasErrors()) {
-            System.out.println(result.getAllErrors());
-            System.out.println(donation.getCategories());
             return "form";
         }
 
