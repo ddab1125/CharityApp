@@ -3,6 +3,7 @@ package pl.coderslab.charity.donation.dto;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
+import pl.coderslab.charity.validator.PhoneNumber;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -30,8 +31,9 @@ public class NewDonationDto {
     private LocalTime pickUpTime;
     private String pickUpComment;
 
-    @NotNull(message = "{invalid.phone-number.not-empty}")
-    private int phoneNumber;
+    @NotEmpty(message = "{invalid.phone-number.not-empty}")
+    @PhoneNumber
+    private String phoneNumber;
 
     @NotEmpty(message = "{invalid.categories.not-empty}")
     private Set<Long> categories;

@@ -192,9 +192,10 @@
                             </label>
                         </div>
 
+                        <form:errors path="phoneNumber" cssClass="error"/>
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <form:input path="phoneNumber" type="phone" class="phone"/>
+                                Numer telefonu <form:input path="phoneNumber" type="text" class="phone"/>
                             </label>
                         </div>
                     </div>
