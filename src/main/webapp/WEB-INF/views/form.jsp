@@ -87,17 +87,17 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-            <form:form action="/donate/new" modelAttribute="donation">
+        <form:form action="/donate/new" modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
-
-
+                <form:errors path="categories" cssClass="error"/>
                 <c:forEach items="${categories}" var="category">
 
                     <div class="form-group form-group--checkbox">
                         <label>
                             <form:checkbox path="categories" cssClass="checkbox" value="${category}" id="check-select"/>
+
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>
                         </label>
@@ -113,11 +113,12 @@
             <!-- STEP 2 -->
             <div data-step="2">
                 <h3>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h3>
-
+                <form:errors path="quantity" cssClass="error"/>
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
                         <form:input path="quantity" type="number" step="1" min="1" id="quantity-nmbr"/>
+
                     </label>
                 </div>
 
@@ -131,8 +132,11 @@
             <!-- STEP 4 -->
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
+                <form:errors path="institution" cssClass="error"/>
+
                 <c:forEach var="organization" items="${institutions}">
                     <div class="form-group form-group--checkbox">
+
                         <label>
                             <form:radiobutton path="institution" name="organization"
                                               value="${organization}" id="org-name"/>
@@ -161,35 +165,54 @@
                 <div class="form-section form-section--columns">
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
-                        <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" id="street-name"/></label>
-                        </div>
+                        <form:errors path="street" cssClass="error"/>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" id="city-name"/> </label>
+                            <label> Ulica <form:input path="street" id="street-name"/>
+
+                            </label>
+
                         </div>
+
+
+                        <form:errors path="city" cssClass="error"/>
+
+                        <div class="form-group form-group--inline">
+                            <label> Miasto <form:input path="city" id="city-name"/>
+                            </label>
+                        </div>
+
+
+                        <form:errors path="zipCode" cssClass="error"/>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Kod pocztowy <form:input path="zipCode" id="zip"/>
+
                             </label>
                         </div>
-<%--Nie ma telefonu w bazie, czy dodać?--%>
-<%--                        <div class="form-group form-group--inline">--%>
-<%--                            <label>--%>
-<%--                                Numer telefonu <input type="phone" name="phone"/>--%>
-<%--                            </label>--%>
-<%--                        </div>--%>
+
+                        <div class="form-group form-group--inline">
+                            <label>
+                                Numer telefonu <input type="phone" name="phone"/>
+                            </label>
+                        </div>
                     </div>
 
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input type="date" path="pickUpDate" id="pick-up-date"/> </label>
+                            <label> Data <form:input type="date" path="pickUpDate" id="pick-up-date" required="true"/>
+                            </label>
                         </div>
 
+
+                        <form:errors path="pickUpTime" cssClass="error"/>
+
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input type="time" path="pickUpTime" id="pick-up-time"/> </label>
+                            <label> Godzina
+                                <form:input type="time" path="pickUpTime" id="pick-up-time"/>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -222,7 +245,7 @@
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text" id="org-disp" ></span>
+                                <span class="summary--text" id="org-disp"></span>
                             </li>
                         </ul>
                     </div>
@@ -234,7 +257,7 @@
                                 <li id="street-disp"></li>
                                 <li id="city-disp"></li>
                                 <li id="zip-disp"></li>
-<%--                                <li> phone number </li>--%>
+                                    <%--                                <li> phone number </li>--%>
                             </ul>
                         </div>
 
@@ -254,7 +277,7 @@
                     <button type="submit" class="btn">Potwierdzam</button>
                 </div>
             </div>
-            </form:form>
+        </form:form>
     </div>
 </section>
 
