@@ -6,8 +6,6 @@ import pl.coderslab.charity.category.service.CategoryService;
 import pl.coderslab.charity.donation.dto.NewDonationDto;
 import pl.coderslab.charity.donation.entity.Donation;
 import pl.coderslab.charity.institution.service.InstitutionService;
-
-import java.util.HashSet;
 import java.util.stream.Collectors;
 
 @Component

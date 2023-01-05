@@ -14,7 +14,6 @@ import java.time.LocalTime;
 import java.util.Set;
 
 @Data
-
 public class NewDonationDto {
 
     @Min(1)
