@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // TODO: get data from inputs and show them in summary
 
-            let inputs = document.querySelectorAll('#check-select');
+            let inputs = document.querySelectorAll('.check-select');
             let categories = [];
             for (let i = 0; i < inputs.length; i++) {
                 if (inputs[i].checked) {
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let pickUpComment = document.querySelector('.pick-up-comment').value;
             document.getElementById('comment-disp').innerText = "Uwagi do kuriera: " + pickUpComment;
             let phoneNumber = document.querySelector(".phone").value;
-            document.getElementById("phone-disp").innerText = "Numer telefonu" + phoneNumber;
+            document.getElementById("phone-disp").innerText = "Numer telefonu: " + phoneNumber;
         }
 
     }

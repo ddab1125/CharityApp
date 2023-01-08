@@ -1,6 +1,8 @@
 package pl.coderslab.charity.web.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,7 @@ import pl.coderslab.charity.donation.mapper.DonationMapper;
 import pl.coderslab.charity.donation.service.DonationService;
 import pl.coderslab.charity.institution.entity.Institution;
 import pl.coderslab.charity.institution.service.InstitutionService;
+import pl.coderslab.charity.user.service.CurrentUser;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -44,7 +47,8 @@ public class DonationController {
 
 
     @GetMapping("/new")
-    public String donationForm(Model model) {
+    public String donationForm(@AuthenticationPrincipal CurrentUser customUser,
+            Model model) {
         model.addAttribute("donation", new NewDonationDto());
 
         return "form";

@@ -96,7 +96,7 @@
 
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:checkbox path="categories" cssClass="checkbox" value="${category}" class="check-select"/>
+                            <form:checkbox path="categories" cssClass="checkbox check-select" value="${category}" />
 
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>

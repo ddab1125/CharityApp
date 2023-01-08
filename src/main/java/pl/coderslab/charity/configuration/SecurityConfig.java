@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -14,7 +15,12 @@ public class SecurityConfig {
     @Bean
     protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
-                .antMatchers("/").permitAll();
+                .antMatchers("/").permitAll()
+                .antMatchers("/donate/**").authenticated()
+                .and().formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/");
+
         return httpSecurity.build();
     }
 
