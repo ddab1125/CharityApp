@@ -16,6 +16,7 @@ public class SecurityConfig {
     protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/reset").permitAll()
                 .antMatchers("/donate/**").authenticated()
                 .and().formLogin()
                 .loginPage("/login")
