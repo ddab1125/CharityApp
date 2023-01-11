@@ -43,7 +43,6 @@ public class EmailService {
 
 
     public SimpleMailMessage constructResetTokenEmail(String contextPath, String token, User user) {
-        //Jak zrobic to bardziej elegancko
         String url = "http://localhost:8080" + contextPath + "/passwordreset?token=" + token;
         String message = "Resetowanie hasła";
         return constructEmail("Reset Hasła", message + " \r\n" + url, user);

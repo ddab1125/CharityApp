@@ -5,16 +5,16 @@ import lombok.RequiredArgsConstructor;
 import pl.coderslab.charity.user.entity.User;
 
 import javax.persistence.*;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
 
 @Entity
 @RequiredArgsConstructor
 @Getter
 public class PasswordResetToken {
 
-    private static final long EXPIRATION = (60 * 24) * 60;
+    private static final long EXPIRATION = 24 * 60;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,13 +25,13 @@ public class PasswordResetToken {
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
-    private Date expiryDate;
+    private LocalDateTime expiryDate;
 
 
     public PasswordResetToken(String token, User user) {
         this.token = token;
         this.user = user;
-        this.expiryDate = Date.from(Instant.now().plusSeconds(EXPIRATION));
+        this.expiryDate = LocalDateTime.now().plusMinutes(EXPIRATION).truncatedTo(ChronoUnit.SECONDS);
     }
 
 }
